@@ -1,0 +1,86 @@
+import java.util.ArrayList;
+import java.util.List;
+
+interface ImpactoEcologico {
+    double obtenerImpactoEcologico();
+}
+
+class Edificio implements ImpactoEcologico {
+    private String nombre;
+    private int consumoEnergia;
+
+    public Edificio(String nombre, int consumoEnergia) {
+        this.nombre = nombre;
+        this.consumoEnergia = consumoEnergia;
+    }
+
+    public double obtenerImpactoEcologico() {
+        // Lógica para calcular el impacto ecológico del edificio
+        // Aquí puedes realizar cálculos basados en el consumo de energía y otros factores
+        // En este ejemplo, simplemente retornamos el consumo de energía tal cual
+        return consumoEnergia;
+    }
+
+    public String toString() {
+        return "Edificio: " + nombre + ", Consumo de Energía: " + consumoEnergia + " kWh";
+    }
+}
+
+class Auto implements ImpactoEcologico {
+    private String marca;
+    private double emisiones;
+
+    public Auto(String marca, double emisiones) {
+        this.marca = marca;
+        this.emisiones = emisiones;
+    }
+
+    public double obtenerImpactoEcologico() {
+        // Lógica para calcular el impacto ecológico del auto
+        // Aquí puedes realizar cálculos basados en las emisiones de carbono y otros factores
+        // En este ejemplo, simplemente retornamos las emisiones tal cual
+        return emisiones;
+    }
+
+    public String toString() {
+        return "Auto: " + marca + ", Emisiones de Carbono: " + emisiones + " g/km";
+    }
+}
+
+class Bicicleta implements ImpactoEcologico {
+    private String modelo;
+    private int fabricacion;
+
+    public Bicicleta(String modelo, int fabricacion) {
+        this.modelo = modelo;
+        this.fabricacion = fabricacion;
+    }
+
+    public double obtenerImpactoEcologico() {
+        // Lógica para calcular el impacto ecológico de la bicicleta
+        // Aquí puedes realizar cálculos basados en el año de fabricación y otros factores
+        // En este ejemplo, simplemente retornamos el año de fabricación tal cual
+        return fabricacion;
+    }
+
+    public String toString() {
+        return "Bicicleta: " + modelo + ", Año de Fabricación: " + fabricacion;
+    }
+}
+
+public class ProgramaImpactoEcologico {
+
+    public static void main(String[] args) {
+        List<ImpactoEcologico> objetosEcologicos = new ArrayList<>();
+
+        objetosEcologicos.add(new Edificio("Edificio A", 5000));
+        objetosEcologicos.add(new Auto("Marca X", 150));
+        objetosEcologicos.add(new Bicicleta("Modelo Y", 2019));
+
+        for (ImpactoEcologico objeto : objetosEcologicos) {
+            System.out.println(objeto);
+            System.out.println("Impacto Ecológico: " + objeto.obtenerImpactoEcologico());
+            System.out.println();
+        }
+    }
+}
